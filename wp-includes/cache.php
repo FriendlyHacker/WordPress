@@ -117,7 +117,7 @@ function wp_cache_flush() {
  * @return bool|mixed False on failure to retrieve contents or the cache
  *		              contents on success
  */
-function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
+function wp_cache_get( $key, $group = '', $force = false, $found = null ) {
 	global $wp_object_cache;
 
 	return $wp_object_cache->get( $key, $group, $force, $found );
@@ -538,7 +538,7 @@ class WP_Object_Cache {
 	 *                           false, a storable value. Passed by reference. Default null.
 	 * @return false|mixed False on failure to retrieve contents or the cache contents on success.
 	 */
-	public function get( $key, $group = 'default', $force = false, &$found = null ) {
+	public function get( $key, $group = 'default', $force = false, $found = null ) {
 		if ( empty( $group ) )
 			$group = 'default';
 
